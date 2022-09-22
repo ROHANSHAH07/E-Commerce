@@ -1,0 +1,24 @@
+{
+  "User": [
+    {
+      "email": "rose09@yopmail.com",
+      "password": "123",
+      "id": 2
+    },
+    {
+      "email": "Harshil09@gmail.com",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "email": "Harshil09@gmail.com",
+      "password": "123456",
+      "id": 4
+    },
+    {
+      "email": "tombhai073@gmail.com",
+      "password": "123456",
+      "id": 5
+    }
+  ]
+}

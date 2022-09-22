@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+         <div class="text-center">
+           <h1>User Login</h1><hr>
+         </div>
+         <form [formGroup]="loginform" (ngSubmit)="login()">
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Email</label>
+            <input formControlName="email"
+            id="email"
+            type="text"
+            class="form-control" placeholder="Enter Email Address">
+        <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+            <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+            <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
+        </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1" placeholder="Enter Password">
+            <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger">
+              <div *ngIf="f['password'].errors && f['password'].errors['required']">password is required.</div>
+
+
+              <div *ngIf="f['password'].errors && f['password'].errors['minlength']">Password Must Be 6 length </div>
+          </div>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="loginform.invalid">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

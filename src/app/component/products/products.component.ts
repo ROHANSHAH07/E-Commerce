@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
 import { CartService } from 'src/app/service/cart.service';
 
@@ -12,12 +13,14 @@ export class ProductsComponent implements OnInit {
   public productList : any ;
   public filterCategory : any
   searchKey:string ="";
-  constructor(private api : ApiService, private cartService : CartService) { }
+  constructor(private api : ApiService, private cartService : CartService,private router:Router) { }
 
   ngOnInit(): void {
+    this.api.getuserdata();
     this.api.getProduct()
     .subscribe(res=>{
       this.productList = res;
+      localStorage.getItem('Products')
       this.filterCategory = res;
       this.productList.forEach((a:any) => {
         if(a.category ==="women's clothing" || a.category ==="men's clothing"){
@@ -25,7 +28,7 @@ export class ProductsComponent implements OnInit {
         }
         Object.assign(a,{quantity:1,total:a.price});
       });
-      console.log(this.productList)
+      // console.log(this.productList)
     });
 
     this.cartService.search.subscribe((val:any)=>{
@@ -42,6 +45,14 @@ export class ProductsComponent implements OnInit {
         return a;
       }
     })
+  }
+
+
+
+  viewproduct(item:any)
+  {
+    this.router.navigate(['/product'],{queryParams:{source:item}})
+
   }
 
 }
