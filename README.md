@@ -1,6 +1,6 @@
 # Angular  E-Commerce Website
 
-#bash
+
 # Clone this repository
 $ git clone https://github.com/ROHANSHAH07/E-Commerce.git
 
